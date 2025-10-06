@@ -10,15 +10,20 @@ a, button {
     cursor: pointer;
     text-decoration: none;
     color: inherit;
+    transition: var(--transition-duration);
+    text-underline-position: under;
 }
 .button {
     display: inline-flex;
     align-items: center;
-    height: 60px;
     padding-inline: 55px;
 }
 .container {
     max-width: var(--container-width);
     padding-inline: var(--padd-x);
     margin: 0 auto;
+}
+b {
+    color: var(--color-accent);
+    font-weight: 600;
 }
