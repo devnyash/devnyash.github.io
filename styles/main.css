@@ -39,9 +39,22 @@
 }
 .header__menu-item a {
     font-weight: 500;
+    position: relative;
+    padding-bottom: 3px;
 }
-.header__menu-item a:hover {
-    text-decoration: underline;
+.header__menu-item a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-black);
+    bottom: 0;
+    opacity: 0;
+    transition: var(--transition-duration);
+}
+.header__menu-item a:hover::before {
+    width: 100%;
+    opacity: 1;
 }
 .header__contact,
 .overlay__contact {
@@ -137,7 +150,7 @@
     z-index: 101;
     opacity: 0;
     visibility: hidden;
-    transition: var(--transition);
+    transition: var(--transition-duration);
     color: var(--color-black);
 }
 .overlay.active {
