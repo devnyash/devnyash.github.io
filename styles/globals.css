@@ -1,4 +1,5 @@
 body {
+    line-height: 1;
     background-color: var(--background-color-white);
     color: var(--color-black);
     transition: var(--transition-duration);
@@ -28,5 +29,5 @@ b {
     font-weight: 700;
 }
 main {
-    min-height: 100vh;
+    min-height: 60vw;
 }
