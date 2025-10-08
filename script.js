@@ -4,12 +4,40 @@ const burger = document.getElementById('burger');
 const overlay = document.getElementById('overlay');
 const body = document.body;
 const overlayLinks = document.querySelectorAll('.overlay-nav-link');
+const map = document.getElementById('map');
 
-themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-theme');
+let isDarkTheme = false;
+
+themeToggle.addEventListener('click', function() {
+    const url = new URL(map.src);
     
-    const isDarkTheme = body.classList.contains('dark-theme');
-    localStorage.setItem('darkTheme', isDarkTheme);
+    if (!isDarkTheme) {
+        url.searchParams.set('theme', 'dark');
+        map.src = url.toString();
+        isDarkTheme = true;
+    } else {
+        url.searchParams.delete('theme');
+        map.src = url.toString();
+        isDarkTheme = false;
+    }
+    
+    body.classList.toggle('dark-theme');
+    localStorage.setItem('darkTheme', body.classList.contains('dark-theme'));
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const savedTheme = localStorage.getItem('darkTheme') === 'true';
+    const body = document.body;
+    const map = document.getElementById('map');
+    
+    if (savedTheme) {
+        body.classList.add('dark-theme');
+        
+        const url = new URL(map.src);
+        url.searchParams.set('theme', 'dark');
+        map.src = url.toString();
+        isDarkTheme = true;
+    }
 });
 
 burger.addEventListener('click', () => {
@@ -45,6 +73,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+function updateMapTheme(isDark) {
+    let url = new URL(mapIframe.src);
+    
+    if (isDark) {
+        url.searchParams.set('theme', 'dark');
+    } else {
+        url.searchParams.delete('theme');
+    }
+    
+    mapIframe.src = url.toString();
+}
+
 //swiper
 const swiper = new Swiper('.swiper', {
     autoplay: {
@@ -64,3 +104,4 @@ const swiper = new Swiper('.swiper', {
         prevEl: '.custom-button-prev',
     }
 });
+
