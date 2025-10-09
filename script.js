@@ -1,10 +1,17 @@
-//header-burger, overlay
+//header-burger, overlaygit 
 const themeToggle = document.getElementById('themeToggle');
 const burger = document.getElementById('burger');
 const overlay = document.getElementById('overlay');
 const body = document.body;
 const overlayLinks = document.querySelectorAll('.overlay-nav-link');
 const map = document.getElementById('map');
+
+
+themeToggle.addEventListener('click', function() {
+    
+    body.classList.toggle('dark-theme');
+    localStorage.setItem('darkTheme', body.classList.contains('dark-theme'));
+});
 
 let isDarkTheme = false;
 
@@ -20,9 +27,6 @@ themeToggle.addEventListener('click', function() {
         map.src = url.toString();
         isDarkTheme = false;
     }
-    
-    body.classList.toggle('dark-theme');
-    localStorage.setItem('darkTheme', body.classList.contains('dark-theme'));
 });
 
 document.addEventListener('DOMContentLoaded', function() {
