@@ -435,9 +435,6 @@
     .header__menu {
         flex-wrap: wrap;
     }
-    .header__menu .header__menu-list:nth-child(3) {
-        padding-top: 10px;
-    }
     .header__logo--2 {
         display: block;
     }
@@ -446,6 +443,11 @@
     }
     .theme-toggle {
         order: 1;
+    }
+}
+@media(max-width: 1507px) {
+    .header__menu .header__menu-list:nth-child(3) {
+        padding-top: 10px;
     }
 }
 @media(max-width: 1260px) {
