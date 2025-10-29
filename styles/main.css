@@ -1,7 +1,140 @@
-@import url(./reset.css);
-@import url(./globals.css);
-@import url(./veriables.css);
-@import url(./fonts.css);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+/* reset css */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	scroll-behavior: smooth;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* fonts */
+
+@font-face {
+    font-family: 'VK Sans Display';
+    src: url('../fonts/VKSansDisplay-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* veriables */
+
+:root {
+    --font-family: "VK Sans Display", sans-serif;
+    --seconde-family: "Montserrat", sans-serif;
+
+    --border-radius-100: 100%;
+    --border-radius-30: 30px;
+    --border-radius-23: 23px;
+    --border-radius-15: 15px;
+    --border-radius-10: 10px;
+    --border-radius-5: 5px;
+    --border-none: none;
+
+    --box-shadow-header: 0 5px 20px 0 rgba(0, 0, 0, 0.25);
+    --box-shadow-footer: 0 -5px 20px 0 rgba(0, 0, 0, 0.25);
+
+    --background-color-white: #efefef;
+    --background-color-light: #fff;
+    --background-color-accent: #357ed6; 
+
+    --color-black: #000;
+    --color-white: #fff;
+    --color-accent: #387ACD; 
+    --color-light-gray: rgba(0, 0, 0, 0.4);
+
+    --transition-duration: 0.3s;
+
+    --padd-x: 10px;
+
+    --container-width: 1350px;
+}
+.dark-theme {
+    --background-color-white: #282828;
+    --background-color-light: #303030;
+    /* --background-color-light: -1px -1px 8px 0px rgba(209, 220, 229, 0.2) inset; */
+    --color-light-gray: rgba(255, 255, 255, 0.4);
+
+    --color-black: #fff;
+}
+
+/* globals */
+
+:focus-visible {
+    outline: 2px dashed var(--background-color-accent);
+    outline-offset: 2px 2px;
+}
+body {
+    line-height: 1;
+    background-color: var(--background-color-white);
+    color: var(--color-black);
+    transition: var(--transition-duration);
+    font-family: var(--font-family);
+    font-size: clamp(18px, 1.80vw, 24px);
+}
+a, button {
+    white-space: nowrap;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition-duration);
+    text-underline-position: under;
+}
+.button {
+    display: inline-flex;
+    align-items: center;
+    padding-inline: 55px;
+}
+.container {
+    max-width: var(--container-width);
+    padding-inline: var(--padd-x);
+    margin: 0 auto;
+}
+b {
+    color: var(--color-accent);
+    font-weight: 700;
+}
+main {
+    min-height: 60vw;
+}
+
+/* header */
 
 .header {
     width: 100%;
@@ -204,7 +337,7 @@
 }
 .info__swiper-slide img {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: var(--border-radius-15);
     padding-left: 6px;
@@ -323,7 +456,7 @@
 .info__socialMedia-text p:last-child {
     font-weight: 400;
     font-size: clamp(18px, 1.80vw, 24px);
-    color: var(--color-light-gray);
+    color: var(--color-black);
 }
 .info__socialMedia-button {
     font-weight: 500;
